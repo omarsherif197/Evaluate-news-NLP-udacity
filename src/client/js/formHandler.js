@@ -1,21 +1,11 @@
-function URLChecker(string){
-    let url;
-    try {
-        url = new URL(string);
-      } catch (_) {
-        alert("This is not a valid URL, try again.");  
-        return false;
-      }
-    
-      return url.protocol === "http:" || url.protocol === "https:";
-}
+import {URLChecker} from './URLChecker'
 
 async function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    
+    console.log("Clicked on Submit Form");
     if (URLChecker(formText)) {
           
             const response = await fetch('http://localhost:8081/sentiment?url='+formText)

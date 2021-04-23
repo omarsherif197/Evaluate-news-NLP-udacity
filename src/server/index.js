@@ -5,9 +5,13 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const FormData = require('form-data')
 const fetch = require('node-fetch');
+const cors = require('cors')
+
 
 
 const app = express()
+
+app.use(cors())
 
 var cloudAPI = {
     application_key: process.env.API_KEY
